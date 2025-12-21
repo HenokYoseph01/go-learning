@@ -37,7 +37,7 @@ func main() {
 	//Floats
 	var scoreOne float32 = 3.4
 	var scoreTwo float64 = 2000.21
-	scoreThree:=2.3 //defaults to float65
+	scoreThree:=2.3 //defaults to float64
 
 	fmt.Println(scoreOne, scoreTwo, scoreThree);
 
