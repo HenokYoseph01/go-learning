@@ -41,6 +41,50 @@ func main() {
 
 	fmt.Println(scoreOne, scoreTwo, scoreThree);
 
+	//Arrays
+	//1. Long way
+	// var ages [3]int = [3]int{20, 30, 40}
+
+	//2. Short way
+	var ages = [3]int{50, 60, 70}
+
+	fmt.Println(ages, len(ages)) //Use len() to get length of arrays
+
+	//3. Short hand way (Shorter)
+	names := [4]string{"Holy","Molly","This","Hard"}
+
+	fmt.Println(names)
+
+	// Slice (uses array under the hood), basically an array without a length specfication
+	/* Can't append elements to an array, but can to a slice. 
+	   append(<slice>, <newvalue>) returns a new slice, doesn't update the slice it references 
+	   hence assign it to the reference slice
+	*/
+
+	var scores = []int{40,60,30};
+	scores[2] = 50
+
+	scores = append(scores, 80)
+
+	fmt.Println(scores, len(scores))
+
+	// Slice Ranges: Get range of elements from existing slice and assign it to a new slice
+	rangeOne := names[1:3]
+	rangeTwo := names[0:]
+	rangeThree := names[:2]
+
+	rangeOne = append(rangeOne, "That")
+
+	fmt.Println(rangeOne, rangeTwo, rangeThree)
+
+
+
+
+
+
+
+
+
 
 
 
