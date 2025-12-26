@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 )
 
@@ -90,9 +91,23 @@ func main() {
 	fmt.Println(strings.Index(greetings, "ga"))
 	fmt.Println(strings.Split(greetings, " ")) //Returns an array/splice with string split up based on a delimiter
 
-	
+	//Original String doesn't get altered
+	fmt.Println("Original String:", greetings) 
 
+	//sort package
+	numbers := []int{45, 20, 42, 90, 39, 10, 20, 28}
 
+	sort.Ints(numbers) //sorts package alters original slice
+	fmt.Println(numbers)
+
+	int_index := sort.SearchInts(numbers, 90)
+	fmt.Println(int_index) //Returns index of number that wants to be searched, if not there then will return element + 1 (it doesn't exist)
+
+	name_slice := []string{"Some","Strings","To","Be","Arranged","Type"}
+	sort.Strings(name_slice)
+	fmt.Println(name_slice)
+	string_index := sort.SearchStrings(name_slice, "To")
+	fmt.Println(string_index)
 
 
 
