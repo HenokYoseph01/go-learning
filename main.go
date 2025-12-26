@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	fmt.Println("Hello, Peeps")
@@ -76,6 +79,19 @@ func main() {
 	rangeOne = append(rangeOne, "That")
 
 	fmt.Println(rangeOne, rangeTwo, rangeThree)
+
+	//December 26: Packages
+	//strings package
+	greetings := "Whats Up Gang"
+
+	fmt.Println(strings.Contains(greetings,"Whats")) //Returns true or false if string exists in a string or not
+	fmt.Println(strings.ReplaceAll(greetings, "Whats", "Hands")) //Replace a specfic string with another string (if string that is being searched to be replaced doesn't exist, return original string)
+	fmt.Println(strings.ToUpper(greetings)) //Changes string to upper case
+	fmt.Println(strings.Index(greetings, "ga"))
+	fmt.Println(strings.Split(greetings, " ")) //Returns an array/splice with string split up based on a delimiter
+
+	
+
 
 
 
