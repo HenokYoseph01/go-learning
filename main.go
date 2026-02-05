@@ -110,6 +110,31 @@ func main() {
 	fmt.Println(string_index)
 
 
+	//February 5: Loops
+	x := 0;
+	for x < 5 {
+		fmt.Println("Value of x is:", x)
+  		x++;
+	}
+
+	for i:= 0; i<5; i++ {
+		fmt.Println("Value of i is:", i)
+
+	}
+
+	nameLoop := []string{"mario","luigi","yoshi","peach"}
+	for i:=0; i<len(nameLoop); i++{
+		fmt.Println(nameLoop[i])
+	}
+
+	//Modern loop by using range
+	for index, value := range nameLoop {
+		fmt.Printf("The value at index %v is %v \n", index, value)
+		value = "new stuff" //Doesn't change value of array at corresponding index as value is like a local variable
+	}
+
+	fmt.Println(nameLoop);
+
 
 
 
