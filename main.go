@@ -2,9 +2,48 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"sort"
 	"strings"
 )
+
+// Feb 5 Functions
+func sayGreeting(n string){
+	fmt.Printf("Good Morning %v \n", n)
+}
+
+func sayBye(n string){
+	fmt.Printf("Good Bye %v \n", n)
+}
+
+func cycleNames(n []string, f func(string)){
+	for _, value := range n{
+		f(value);
+	}
+}
+
+func circleArea(r float64) float64{
+	return math.Pi * r * r
+}
+
+// Feb 9 Multiple returns
+func getInital(n string) (string, string){
+	s := strings.ToUpper(n);
+	names := strings.Split(s, " ");
+
+	var initals []string
+
+	for _, v := range names {
+		initals = append(initals, v[:1])
+	}
+
+	if len(initals) > 1 {
+		return initals[0], initals[1]
+	}
+
+	return initals[0], "_"
+
+}
 
 func main() {
 	fmt.Println("Hello, Peeps")
@@ -135,14 +174,51 @@ func main() {
 
 	fmt.Println(nameLoop);
 
+	//Lesson: Boolean
+	age := 45
+	fmt.Println(age<=50)
+	fmt.Println(age>=50)
+	fmt.Println(age==50)
+	fmt.Println(age!=50)
 
+	if age < 30 {
+		fmt.Println("age is less than 30")
+	}else if age < 40 {
+		fmt.Println("age is less than 40")
+	} else {
+		fmt.Println("Age is not less than 45")
+	}
 
+	for index, value := range nameLoop {
+		if index == 1 {
+			fmt.Println("Continuing at pos", index)
+			continue
+		}
+		if index > 2 {
+			fmt.Println("Breaking at pos", index)
+			break
+		}
 
+		fmt.Printf("The value at index %v is %v \n", index, value)
+	}
 
+	//FUNCTIONS
+	// sayGreeting("Dozy");
+	// sayGreeting("Viby");
+	// sayBye("Moonz");
+	cycleNames([]string{"Smiley","Psycho","Viby"}, sayGreeting)
+	a1 := circleArea(10.2)
+	a2 := circleArea(18)
 
+	fmt.Println(a1, a2);
+	fmt.Printf("Circle 1 is %0.3f and Circle 2 is %0.3f", a1, a2)
+	fmt.Println("")
 
-
-
-
-
+	//Feb 9: Multiple Returns
+	fn1, sn1 := getInital("John Snow")
+	fmt.Println(fn1, sn1)
+	fn2, sn2 := getInital("Scarlet Rot")
+	fmt.Println(fn2, sn2)
+	fn3, sn3 := getInital("Melinia")
+	fmt.Println(fn3, sn3)
 }
