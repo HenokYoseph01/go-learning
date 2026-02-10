@@ -7,6 +7,9 @@ import (
 	"strings"
 )
 
+// Feb 10 Package Scope
+var score = 99.5
+
 // Feb 5 Functions
 func sayGreeting(n string){
 	fmt.Printf("Good Morning %v \n", n)
@@ -221,4 +224,14 @@ func main() {
 	fmt.Println(fn2, sn2)
 	fn3, sn3 := getInital("Melinia")
 	fmt.Println(fn3, sn3)
+
+	//Feb 10: Package Scope (greetings.go)
+	//To make sayHello and the for range loop on the points slice work, run both main and greeting files (go run main.go greetings.go)
+	sayHello("mario")
+
+	for _ , value := range points{
+		fmt.Println(value)
+	}
+
+	showScore();
 }
