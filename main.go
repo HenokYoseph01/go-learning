@@ -47,6 +47,16 @@ func getInital(n string) (string, string){
 	return initals[0], "_"
 
 }
+//Feb 17: Pass By Value
+func updateName(n string) string{
+		n = "Change"
+		return n;
+}
+
+func updateMenu(y map[string]float64) {
+	y["coffee"]=2.99
+}
+
 
 func main() {
 	fmt.Println("Hello, Peeps")
@@ -227,11 +237,64 @@ func main() {
 
 	//Feb 10: Package Scope (greetings.go)
 	//To make sayHello and the for range loop on the points slice work, run both main and greeting files (go run main.go greetings.go)
-	sayHello("mario")
+	// sayHello("mario")
 
-	for _ , value := range points{
-		fmt.Println(value)
+	// for _ , value := range points{
+	// 	fmt.Println(value)
+	// }
+
+	// showScore();
+
+	//Feb 10: Maps
+	//Keys and values have to be of the same type (ex: integer keys and string values)
+	//syntax: map[<keyType>]<valueType>{key:value}
+	menu := map[string]float64{
+		"soup": 4.99,
+		"pie": 7.99,
+		"salad": 6.99,
+		"pudding": 3.55,
 	}
 
-	showScore();
+	fmt.Println(menu)
+	fmt.Println(menu["soup"]) //Value based on key/ specfic value from map
+
+	//Looping maps
+	for key, value := range menu {
+		fmt.Println(key, "-",value)
+	}
+
+	// ints as key type
+	phoneBook := map[int]string{
+		11111: "Kirby",
+		22222: "Link",
+		33333: "Sonic",
+	}
+
+	fmt.Println(phoneBook)
+	fmt.Println(phoneBook[11111])
+
+	//Update value
+	phoneBook[22222] = "Zelda"
+		fmt.Println(phoneBook)
+
+	//Feb 17: Pass by Value
+	
+	//Group A
+	name:="Hi"
+	name=updateName(name)
+	fmt.Println(name)
+
+	//Group B
+	menus:= map[string]float64{
+		"pie": 4.33,
+		"ice cream": 2.33,
+	}
+
+	updateMenu(menus)
+
+	fmt.Println(menus)
+
+
+
+
 }
