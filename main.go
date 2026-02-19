@@ -315,6 +315,13 @@ func main() {
 	fmt.Println("Updated name: ", n)
 
 
+	//Feb 19: Struct & Custom Types
+	myBill := newBill("Broke Boy's Bill")
+	fmt.Println(myBill);
+	fmt.Println(myBill.format())
+
+
+
 
 
 }
