@@ -58,6 +58,12 @@ func updateMenu(y map[string]float64) {
 }
 
 
+//Feb 18: Pointers
+//Accept pointer as parameter via *<type>
+func updateNamePointer(n *string){
+	*n = "Change Via Pointer"
+}
+
 func main() {
 	fmt.Println("Hello, Peeps")
 
@@ -293,6 +299,20 @@ func main() {
 	updateMenu(menus)
 
 	fmt.Println(menus)
+
+	//Feb 18: Pointers
+
+	n:= "Heyo" 
+	//Pointer to memory location
+	fmt.Println("Memory Address of variable name: ", &n)
+
+	m:= &n;
+	fmt.Println("memory address: ", m)
+	//Dereference with *
+	fmt.Println("Value at memory address: ", *m)
+	fmt.Println("Before update: ", n)
+	updateNamePointer(m)
+	fmt.Println("Updated name: ", n)
 
 
 
