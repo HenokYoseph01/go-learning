@@ -318,6 +318,14 @@ func main() {
 	//Feb 19: Struct & Custom Types
 	myBill := newBill("Broke Boy's Bill")
 	fmt.Println(myBill);
+
+	//Reciever function
+	fmt.Println(myBill.format())
+
+	//Reciever function (pointer)
+	myBill.addItem("Pizza", 5.99)
+	myBill.addItem("Coke", 1.99)
+	myBill.updateTip(10)
 	fmt.Println(myBill.format())
 
 
