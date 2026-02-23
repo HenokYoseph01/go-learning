@@ -6,6 +6,7 @@ import (
 	"math"
 	"os"
 	"sort"
+	"strconv"
 	"strings"
 )
 
@@ -93,7 +94,38 @@ func createBill() bill {
 func promptOptions(b bill){
 	reader := bufio.NewReader(os.Stdin)
 	opt, _ := getInput("Choose Option (a - add item, s - save bill, t - add tip): ", reader)
-	fmt.Println(opt)
+	//Feb 23: Switch statement
+	switch opt {
+	case "a":
+		name,  _ := getInput("Item name: ", reader)
+		price,  _ := getInput("Item price: ", reader)
+
+		//Feb 23: Parsing Float
+		p, err := strconv.ParseFloat(price, 64);
+		if err != nil{
+			fmt.Println("The price must be a number")
+			promptOptions(b)
+		} 
+		b.addItem(name,p)
+
+		fmt.Println("Item Added - ", name, price)
+		promptOptions(b);
+	case "t":
+		tip,  _ := getInput("Enter Tip Amoint (ETB): ", reader)
+		t, err := strconv.ParseFloat(tip, 64);
+		if err != nil{
+			fmt.Println("The tip must be a number")
+			promptOptions(b)
+		} 
+		b.updateTip(t)
+		fmt.Println("Tip Added - ", tip)
+		promptOptions(b);
+	case "s":
+		fmt.Println("You chose to save the bill", b)
+	default:
+		fmt.Println("Not a valid option...")
+		promptOptions(b);
+	}
 
  
 }
@@ -365,8 +397,6 @@ func main() {
 	//Feb 20: User Input
 	mybill2 := createBill()
 	promptOptions(mybill2)
-	fmt.Println(mybill2)
 
-	
 
 }
