@@ -1,8 +1,10 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"math"
+	"os"
 	"sort"
 	"strings"
 )
@@ -62,6 +64,38 @@ func updateMenu(y map[string]float64) {
 //Accept pointer as parameter via *<type>
 func updateNamePointer(n *string){
 	*n = "Change Via Pointer"
+}
+
+//Feb 20: User input
+
+//Helper function
+func getInput (prompt string, r *bufio.Reader) (string, error){
+	fmt.Print(prompt)
+	 input, err := r.ReadString('\n') //Read after new line (after enter has been clicked)
+	 return strings.TrimSpace(input), err
+
+}
+
+func createBill() bill {
+	 reader := bufio.NewReader(os.Stdin)
+
+	//  fmt.Print("Create a new bill name: ")
+	//  name, _ := reader.ReadString('\n') //Read after new line (after enter has been clicked)
+	//  name = strings.TrimSpace(name);
+
+	name, _ := getInput("Create a new bill name: ", reader)
+	 b := newBill(name);
+	 fmt.Println("Create a Bill - ", b.name);
+
+	 return b;
+}
+
+func promptOptions(b bill){
+	reader := bufio.NewReader(os.Stdin)
+	opt, _ := getInput("Choose Option (a - add item, s - save bill, t - add tip): ", reader)
+	fmt.Println(opt)
+
+ 
 }
 
 func main() {
@@ -328,8 +362,11 @@ func main() {
 	myBill.updateTip(10)
 	fmt.Println(myBill.format())
 
+	//Feb 20: User Input
+	mybill2 := createBill()
+	promptOptions(mybill2)
+	fmt.Println(mybill2)
 
-
-
+	
 
 }
