@@ -121,7 +121,8 @@ func promptOptions(b bill){
 		fmt.Println("Tip Added - ", tip)
 		promptOptions(b);
 	case "s":
-		fmt.Println("You chose to save the bill", b)
+		b.save()
+		fmt.Println("You saved the file - ", b.name)
 	default:
 		fmt.Println("Not a valid option...")
 		promptOptions(b);
